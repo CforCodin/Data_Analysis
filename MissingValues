@@ -1,0 +1,13 @@
+// Using Scilearn to transform data and encoding categorical Data
+
+print("Array:")
+df = pd.DataFrame([1,2,3,0,0,8,3,0,3,2,3,6])
+df.replace(0, np.nan, inplace= True)
+print(df)
+af = df.values
+af = af.reshape(-1, 1)
+
+imputer = SimpleImputer(missing_values= np.nan, strategy="most_frequent")
+af = imputer.fit_transform(af)
+af = af.ravel()
+print(af)
